@@ -1,0 +1,75 @@
+.js_weather {
+    font-size: 2.1vmin;
+    font-weight: 700;
+    padding: 1vmin 1vmin;
+}
+
+.weather_box {
+    display: flex;
+    flex-direction: column;
+    transform: rotateZ(-90deg);
+    align-items: baseline;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather_icon {
+    width: 9vmin;
+}
+
+.weatherToggleImg {
+    width: 12vmin;
+    padding: 1vmin 1vmin;
+    cursor: pointer;
+    font-size: 2vmin;
+}
+
+.weatherToggleImg:hover {
+    cursor: pointer;
+}
+
+.see_weather {
+    background: transparent;
+    outline: none;
+    border: none;
+    border: 1.5px solid white;
+    position: absolute;
+    top: 15vmin;
+    right: 5vmin;
+    width: 10vmin;
+    transform: rotateZ(0deg);
+    transform-origin: top left;
+    border-radius: 0.9vmin;
+    transition: all 200ms linear;
+}
+
+.see_weather:hover {
+    cursor: pointer;
+    border-color: pink;
+    background-color: rgba(236, 240, 241, 1);
+}
+
+.forWeatherBtnWidth {
+    background-color: rgba(236, 240, 241, 0.5);
+    font-size: 2vmin;
+    padding: 0px;
+    font-weight: 900;
+    color: black;
+    border: none;
+    border-top: 0.5vmin solid rgba(255, 255, 255, 0.7);
+    border-bottom: 0.5vmin solid rgba(255, 255, 255, 0.7);
+    top: 1vmin;
+    right: -5vmin;
+    width: 19vmin;
+    height: 26vmin;
+    transform: rotateZ(90deg);
+    transform-origin: top left;
+}
+
+.forWeatherBtnWidth:hover {
+    background-color: rgba(236, 240, 241, 0.7);
+}

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Ranchers&family=Roboto:wght@100&display=swap');
+@import "list.css";
+@import "explanation.css";
+@import "weather.css";
+
+body {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    color: rgba(218, 237, 282,1.0);
+    font-family: 'Arvo', serif;
+    margin: 0px 0px;
+}
+
+#background{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+main {
+    position: absolute;
+    width: 100%;
+    top: 11vmin;
+    z-index: -1;
+}
+
+h1,h3,h4,.js_weather {
+    text-shadow: 2px 2px 5px rgba(45, 52, 54,1.0);
+}
+
+h1 {
+    transition: color 0.5s ease-in-out;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 11.7vmin;
+}
+
+.form,
+.greetings {
+    display: none;
+}
+
+.js_form,
+.js_toDoForm {
+    text-align: center;
+}
+
+.js_toDo_input{
+    background: transparent;
+    border: none;
+    color: white;
+    width: 37%;
+    height: 3vmin;
+    padding: 12px 14px;
+    margin: 24x;  
+    text-align: center;  
+    border-radius: 5vmin;
+    transition: all 500ms linear;
+}
+
+.js_toDo_input:hover {
+    border-radius: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.js_toDo_input:focus {
+    outline: none;
+    border: none;
+    background: transparent;
+    transition: all 500ms linear;
+}
+
+
+.js_toDo_input::placeholder { /* Firefox, Chrome, Opera */ 
+    color: white; 
+    font-style: italic; 
+    font-size: 3.5vmin; 
+    text-decoration: underline;
+    transition: all 1000ms linear;
+} 
+
+.js_greetings {
+    color: #ecf0f1;
+    text-align: center;
+    border-left-width: 12px;
+    padding-left: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 5vmin;
+    font-family: Georgia; 
+}
+
+
+.showing {
+    display: block;
+}
+
+.non-showing {
+    display: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.bgImage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    animation: fadeIn 800ms ease-out;
+}
+
+
+/* moving text display
+@keyframes mymove {
+    0% {
+        transform: translateX(32%);
+    }
+    100% {
+        transform: translateX(-90%);
+    }    
+} */
+/* 
+.moving {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    text-align: center;
+    align-items: center;
+    width: 200%;
+    height: 8%;
+    background: rgba(99, 110, 114,0.6);
+    top: 0%;
+}
+    
+.moving span {
+    animation: mymove 30s linear infinite; 
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+} */

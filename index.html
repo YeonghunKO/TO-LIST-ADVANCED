@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>JUST F**KING DO IT </title>
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#js_pending" ).sortable({
+      axis: 'y',
+      revert: true,
+      scroll: true,
+      // cursor: 'move',
+      placeholder: 'sortable-placeholder',
+      start: function(event, ui) {
+          console.log(ui.item.html())
+          ui.placeholder.html(ui.item.html());
+      }
+  });
+  $( "#js_finished" ).sortable({
+      axis: 'y',
+      revert: true,
+      scroll: true,
+      // cursor: 'move',
+      placeholder: 'sortable-placeholder',
+      start: function(event, ui) {
+          console.log(ui.item.html())
+          // console.log(JSON.parse(localStorage.getItem()))
+          ui.placeholder.html(ui.item.html());
+      }
+  });
+      
+  $( "#js_pending" ).disableSelection();
+  $( "#js_finished" ).disableSelection();
+
+});
+</script>
+<body>
+  <div id="background"></div>
+  <!-- <div class="moving">
+    <span>-12 rules for life by Jordan B Peterson-  "You must keep the promises you make to yourself. and reward yourself, so that you can trust and motivate yourself."😎</span>
+  </div> -->
+  <div class="top_content">
+    <div class="top_left_content">
+      <label for="btnOne">
+        <img src="src/img/function.png" class="functionArrow">
+      </label>
+      <button class="see_function" id="btnOne">
+        <span class="functionArrow">🔻</span>
+        <div class="section non-showing">
+          <span>todo 리스트 더블클릭: 내용 수정</span>
+          <span>todo 리스트 드래그: 위치 수정</span>
+          
+        </div>
+      </button>
+        
+    </div>
+    <div class="js_weather">
+      <label for="weatherBtn">
+        <img src="src/img/weather.png" alt="" class="weatherToggleImg">
+      </label>
+      <button class="see_weather" id="weatherBtn">
+        <span class="weatherToggleImg">🔻</span>
+        <div class="weather_box  non-showing">
+          <span class="city"></span>
+          <div class="weather">
+            <span class="weather_description"></span>
+            <img src="" alt="" class="weather_icon">
+          </div>
+          <span class="current_temp"></span>
+          <span class="feel_like"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+  
+  <main>
+    <div class="js_clock">
+      <h1>00:00</h1>
+    </div>
+    <form action="/" class="js_form form">
+      <input class="js_form_input" type="text" placeholder="Enter your name"/>
+    </form>
+    <h4 class="js_greetings greetings"></h4>
+    
+    <form action="/" class="js_toDoForm">
+      <input class="js_toDo_input" type="text" placeholder="Write your TO-DO list"/>
+    </form>
+    <div class="progress">
+      <div class="count_pending"></div>
+      <progress id="progress_bar" value="" max=""></progress>
+    </div>
+    
+    <section class="list">
+      <div>
+        <h3>PENDING</h3>
+        <ul id="js_pending">
+    
+        </ul>
+      </div>
+      <div>
+        <h3>FINISHED</h3>
+        <ul id="js_finished">
+    
+        </ul>
+      </div>
+    </section>
+    
+    
+  
+  </main>
+<script src="src/toggle.js"></script>
+<script src="src/clock.js"></script>
+<script src="src/greeting.js"></script>
+<script src="src/backGround.js"></script>
+<script src="src/todoo.js"></script>
+<script src="src/weather.js"></script>
+
+</body>
+</html>

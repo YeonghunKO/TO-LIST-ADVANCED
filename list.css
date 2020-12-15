@@ -1,0 +1,96 @@
+
+.sortable-placeholder {
+    opacity: 0.3;
+}
+
+li {
+    cursor: pointer;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 42px;
+}
+
+.list div:first-child {
+    margin: 0px 11px;
+    /* border-right: 1px solid; */
+}
+
+.list div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 6fr;
+    grid-auto-rows: 1fr;
+}
+
+.list ul {
+    border: 1px solid;
+    background: rgba(99, 110, 114,0.6);
+    list-style: none;
+    padding: 2vmin;
+}
+
+.list h3 {
+    text-align: center;
+    font-size: 5vmin;
+    margin: 8px 0px;
+}
+.list ul span {
+    padding-right: 7px;
+    font-size: 4vmin;
+    font-weight: 800;
+}
+
+.list ul button {
+    background: transparent;
+    border: none;
+    font-size: 3.5vmin;
+    padding: 0;
+}
+
+.list ul button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#js_pending input,
+#js_finished input {
+    background: rgba(218, 237, 282,1.0);
+    border: none;
+    color: black;
+    font-size: 15px;
+    font-weight: 900;
+    width: auto;
+    padding: 12px 50px;
+    margin: 2px;
+    text-align: center;
+} 
+
+.list div:nth-of-type(2) {
+    margin: 0px 11px;
+}
+
+.progress {
+    text-align: center;
+    padding-top: 2vmin;
+}
+
+.count_pending {
+    font-size: 4.5vmin;
+    font-weight: 900;
+    text-shadow: 2px 2px 5px rgba(45, 52, 54,1.0);
+}
+
+#progress_bar {
+    height: 6vmin;
+    width: 78vmin;
+}
+
+@media screen and (max-width: 600px) {
+    .list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+    }
+}

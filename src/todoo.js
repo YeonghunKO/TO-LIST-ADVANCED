@@ -150,6 +150,7 @@ function deleteTask(e) {
     removeFromFinished(li.id);
     removeFromPending(li.id);
     saveState();
+    progressFunction();
 }
 
 function findInPending(liId) {

@@ -56,6 +56,35 @@ h1 {
     text-align: center;
 }
 
+
+.js_form_input {
+    background: transparent;
+    margin-bottom: 1vmin;
+    border: none;
+    color: white;
+    width: 37%;
+    height: 3vmin;
+    padding: 12px 14px;
+    margin: 24x;  
+    text-align: center;  
+    border-radius: 5vmin;
+    transition: all 500ms linear;
+}
+
+.js_form_input:hover {
+    border-radius: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.js_form_input::placeholder { /* Firefox, Chrome, Opera */ 
+    color: white; 
+    font-style: italic; 
+    font-size: 3.5vmin; 
+    text-decoration: underline;
+    transition: all 1000ms linear;
+} 
+
+
 .js_toDo_input{
     background: transparent;
     border: none;

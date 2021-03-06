@@ -8,37 +8,7 @@
 </head>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-$( function() {
-  $( "#js_pending" ).sortable({
-      axis: 'y',
-      revert: true,
-      scroll: true,
-      // cursor: 'move',
-      placeholder: 'sortable-placeholder',
-      start: function(event, ui) {
-          console.log(ui.item.html())
-          ui.placeholder.html(ui.item.html());
-      }
-  });
-  $( "#js_finished" ).sortable({
-      axis: 'y',
-      revert: true,
-      scroll: true,
-      // cursor: 'move',
-      placeholder: 'sortable-placeholder',
-      start: function(event, ui) {
-          console.log(ui.item.html())
-          // console.log(JSON.parse(localStorage.getItem()))
-          ui.placeholder.html(ui.item.html());
-      }
-  });
-      
-  $( "#js_pending" ).disableSelection();
-  $( "#js_finished" ).disableSelection();
 
-});
-</script>
 <body>
   <div id="background"></div>
   <!-- <div class="moving">

@@ -12,20 +12,6 @@ const FINISHED = "FINISHED";
 
 let pendingTask, finishedTask;
 
-function progressFunction() {
-    if (pendingList.childElementCount || finishedList.childElementCount) {
-        countPending.innerHTML = `${pendingList.childElementCount} more to go`;
-        progressBar.max = pendingList.childElementCount + finishedList.childElementCount;
-        progressBar.value = finishedList.childElementCount;
-        if (pendingList.childElementCount === 0) {
-            countPending.innerHTML =`Finished!! Let's go out and enjoy your life! 😆`
-        }
-    } else {
-        countPending.innerHTML = `Nothing to do. Enjoy your life!`
-    }
-}
-
-
 function updateFinishedTask(id, text) {
     finishedTask.map((finishedElement) => {
         if (finishedElement.id === id) {
@@ -265,7 +251,71 @@ function handleFormSubmit(event) {
         saveState();
         progressFunction();
     }
-    
+}
+
+
+function dragEnable() {
+  var script = document.createElement('script');
+  script.innerHTML = `
+  $(function () {
+    $('#js_pending').sortable({
+      axis: 'y',
+      revert: true,
+      scroll: true,
+      placeholder: 'sortable-placeholder',
+      start: function (event, ui) {
+        ui.placeholder.html(ui.item.html());
+      },
+    });
+    $('#js_finished').sortable({
+      axis: 'y',
+      revert: true,
+      scroll: true,
+      placeholder: 'sortable-placeholder',
+      start: function (event, ui) {
+        ui.placeholder.html(ui.item.html());
+      },
+    });
+  });
+  `;
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+function progressFunction() {
+  if (pendingList.childElementCount || finishedList.childElementCount) {
+    countPending.innerHTML = `${pendingList.childElementCount} more to go`;
+    progressBar.max =
+      pendingList.childElementCount + finishedList.childElementCount;
+    progressBar.value = finishedList.childElementCount;
+    if (pendingList.childElementCount === 0) {
+      countPending.innerHTML = `Finished!! Let's go out and enjoy your life! 😆`;
+    }
+  } else {
+    countPending.innerHTML = `Nothing to do. Enjoy your life!`;
+  }
+}
+
+function newArrayReturned(htmlList, arrayTask) {
+  let editedpendingTask = [];
+  htmlList.childNodes.forEach((child, childIdx) => {
+    let childIden = child.id;
+    arrayTask.map(pendingEle => {
+      if (childIden === pendingEle.id) {
+        editedpendingTask.splice(childIdx, 0, pendingEle);
+      }
+    });
+  });
+  return editedpendingTask;
+}
+
+function pendingListOrderModified(htmlList, arrayTask) {
+  let editedpendingTask = newArrayReturned(htmlList, arrayTask);
+  pendingTask = editedpendingTask;
+}
+
+function finishedListOrderModified(htmlList, arrayTask) {
+  let editedFinishedTask = newArrayReturned(htmlList, arrayTask);
+  finishedTask = editedFinishedTask;
 }
 
 
@@ -274,12 +324,20 @@ function init() {
     entireTodolist.addEventListener("dblclick", handleEdit)
     loadState();
     restoreState();
-    
+    dragEnable()
+    progressFunction();
 }
+
+window.addEventListener('beforeunload', () => {
+  pendingListOrderModified(pendingList, pendingTask);
+  finishedListOrderModified(finishedList, finishedTask);
+  saveState();
+});
+
 
 
 init();
-progressFunction();
+
 
 
 
